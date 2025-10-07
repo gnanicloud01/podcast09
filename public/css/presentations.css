@@ -1,0 +1,875 @@
+/* Presentations Page Styles */
+
+.presentations-hero {
+    background: white;
+    color: #2c3e50;
+    padding: 120px 0 80px;
+    text-align: center;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.presentations-hero .hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.presentations-hero h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #2c3e50;
+}
+
+.presentations-hero h1 i {
+    margin-right: 1rem;
+    color: #667eea;
+}
+
+.presentations-hero p {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    color: #6c757d;
+    line-height: 1.6;
+}
+
+.presentations-hero .hero-tags {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.presentations-hero .tag {
+    background: #f8f9fa;
+    color: #667eea;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    border: 1px solid #e9ecef;
+}
+
+/* Category Filter Section */
+.category-filter-section {
+    padding: 40px 0;
+    background: white;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.category-filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.category-btn {
+    background: #f8f9fa;
+    border: 2px solid #e9ecef;
+    color: #6c757d;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.category-btn:hover {
+    background: #e9ecef;
+    border-color: #667eea;
+    color: #667eea;
+}
+
+.category-btn.active {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-color: #667eea;
+    color: white;
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+}
+
+.category-btn i {
+    font-size: 1rem;
+}
+
+.presentations-section {
+    padding: 80px 0;
+    background: #f8f9fa;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.section-header p {
+    font-size: 1.1rem;
+    color: #6c757d;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.presentations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.presentation-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    border: 1px solid #e9ecef;
+}
+
+.presentation-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.presentation-thumbnail {
+    height: 200px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 4rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.presentation-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.video-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 0.3rem 0.6rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    backdrop-filter: blur(10px);
+}
+
+.video-badge i {
+    font-size: 0.9rem;
+}
+
+.presentation-content {
+    padding: 1.5rem;
+}
+
+.presentation-content h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 0.8rem;
+}
+
+.presentation-content p {
+    color: #6c757d;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.presentation-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+}
+
+.presentation-meta .duration {
+    color: #6c757d;
+}
+
+.presentation-meta .duration i {
+    margin-right: 0.3rem;
+}
+
+.presentation-meta .category {
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-weight: 500;
+    font-size: 0.85rem;
+}
+
+.category.architecture {
+    background: rgba(102, 126, 234, 0.1);
+    color: #667eea;
+}
+
+.category.technical {
+    background: rgba(118, 75, 162, 0.1);
+    color: #764ba2;
+}
+
+.category.features {
+    background: rgba(240, 147, 251, 0.1);
+    color: #f093fb;
+}
+
+.category.security {
+    background: rgba(245, 87, 108, 0.1);
+    color: #f5576c;
+}
+
+.category.ai-technology {
+    background: rgba(79, 172, 254, 0.1);
+    color: #4facfe;
+}
+
+.category.analytics {
+    background: rgba(67, 233, 123, 0.1);
+    color: #43e97b;
+}
+
+.presentation-btn {
+    width: 100%;
+    padding: 0.8rem;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.presentation-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.cloud-features-section {
+    padding: 80px 0;
+    background: white;
+}
+
+.cloud-features-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 3rem;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.feature-card {
+    text-align: center;
+    padding: 2rem;
+    background: #f8f9fa;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+    background: white;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transform: translateY(-5px);
+}
+
+.feature-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    color: white;
+    font-size: 2rem;
+}
+
+.feature-card h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.feature-card p {
+    color: #6c757d;
+    line-height: 1.6;
+}
+
+/* Presentation Modal */
+.presentation-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 2% auto;
+    padding: 0;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 1200px;
+    height: 90%;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+
+.modal-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.close-btn:hover {
+    background-color: rgba(255,255,255,0.2);
+}
+
+.modal-body {
+    height: calc(100% - 80px);
+    overflow-y: auto;
+}
+
+.presentation-viewer {
+    padding: 2rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.presentation-slide {
+    background: white;
+    border-radius: 10px;
+    padding: 3rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.presentation-slide h2 {
+    color: #2c3e50;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.presentation-slide p {
+    color: #6c757d;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.presentation-slide ul {
+    text-align: left;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.presentation-slide li {
+    color: #6c757d;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 0.8rem;
+    padding-left: 1rem;
+}
+
+.slide-navigation {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.slide-nav-btn {
+    background: #667eea;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.slide-nav-btn:hover {
+    background: #5a6fd8;
+    transform: translateY(-2px);
+}
+
+.slide-nav-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Video Presentation Styles */
+.video-presentation, .interactive-presentation {
+    padding: 2rem;
+    text-align: center;
+}
+
+.presentation-info {
+    margin-top: 2rem;
+    text-align: left;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.presentation-info h3 {
+    font-size: 1.5rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.presentation-info p {
+    color: #6c757d;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.presentation-stats {
+    display: flex;
+    gap: 2rem;
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+.presentation-stats span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Filter Animation */
+.presentation-card {
+    transition: all 0.3s ease;
+}
+
+.presentation-card[style*="display: none"] {
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+/* Loading States */
+.presentations-grid.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.loading-spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #667eea;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .presentations-hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .presentations-hero p {
+        font-size: 1.1rem;
+    }
+    
+    .category-filters {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .category-btn {
+        width: 100%;
+        max-width: 250px;
+        justify-content: center;
+    }
+    
+    .presentations-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .modal-content {
+        width: 95%;
+        height: 95%;
+        margin: 2.5% auto;
+    }
+    
+    .presentation-slide {
+        padding: 2rem 1rem;
+    }
+    
+    .presentation-slide h2 {
+        font-size: 2rem;
+    }
+    
+    .video-presentation, .interactive-presentation {
+        padding: 1rem;
+    }
+    
+    .presentation-stats {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .presentations-hero {
+        padding: 100px 0 60px;
+    }
+    
+    .presentations-hero h1 {
+        font-size: 2rem;
+    }
+    
+    .presentations-hero .hero-tags {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .presentation-content {
+        padding: 1rem;
+    }
+    
+    .modal-header {
+        padding: 1rem;
+    }
+    
+    .presentation-slide {
+        padding: 1.5rem 1rem;
+    }
+}/*
+ GT Cloud Detailed Section for Presentations Page */
+.gt-cloud-detailed-section {
+    padding: 80px 0;
+    background: white;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.gt-cloud-detailed-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.gt-cloud-detailed-header h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 2rem;
+}
+
+.gt-cloud-detailed-header h2 i {
+    color: #667eea;
+    margin-right: 1rem;
+}
+
+.gt-cloud-detailed-intro {
+    font-size: 1.2rem;
+    color: #4a5568;
+    line-height: 1.8;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.gt-cloud-detailed-purpose {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+}
+
+.detailed-purpose-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 3rem;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 700px;
+    box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
+}
+
+.detailed-purpose-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.detailed-purpose-card h3 i {
+    margin-right: 0.8rem;
+}
+
+.detailed-purpose-card blockquote {
+    font-size: 1.4rem;
+    font-weight: 600;
+    font-style: italic;
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    border-left: 4px solid rgba(255, 255, 255, 0.3);
+}
+
+.detailed-purpose-card p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    opacity: 0.9;
+}
+
+/* Update existing cloud features section */
+.cloud-features-section h2 i {
+    color: #667eea;
+    margin-right: 1rem;
+}
+
+/* Responsive Design for GT Cloud Detailed Section */
+@media (max-width: 768px) {
+    .gt-cloud-detailed-header h2 {
+        font-size: 2rem;
+    }
+    
+    .gt-cloud-detailed-intro {
+        font-size: 1.1rem;
+    }
+    
+    .detailed-purpose-card {
+        padding: 2rem;
+        margin: 0 1rem;
+    }
+    
+    .detailed-purpose-card blockquote {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .gt-cloud-detailed-section {
+        padding: 60px 0;
+    }
+    
+    .gt-cloud-detailed-header h2 {
+        font-size: 1.8rem;
+    }
+    
+    .detailed-purpose-card {
+        padding: 1.5rem;
+    }
+    
+    .detailed-purpose-card h3 {
+        font-size: 1.5rem;
+    }
+    
+    .detailed-purpose-card blockquote {
+        font-size: 1.1rem;
+    }
+}/* Aur
+ora Presentations Section */
+.aurora-presentations-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    color: white;
+    text-align: center;
+}
+
+.aurora-presentations-header h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.aurora-presentations-header h2 i {
+    color: #667eea;
+    margin-right: 1rem;
+}
+
+.aurora-presentations-subtitle {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 3rem;
+    opacity: 0.9;
+}
+
+.aurora-presentations-description {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.aurora-presentations-main {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.aurora-presentations-quote {
+    font-size: 1.8rem;
+    font-weight: 600;
+    font-style: italic;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 15px;
+    border-left: 4px solid #667eea;
+    backdrop-filter: blur(10px);
+}
+
+/* India Presentations Section */
+.india-presentations-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #ff9933 0%, #138808 50%, #000080 100%);
+    color: white;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.india-presentations-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+.india-presentations-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.india-presentations-flag {
+    font-size: 4rem;
+    margin-bottom: 2rem;
+    color: #fff;
+}
+
+.india-presentations-content h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.india-presentations-tagline {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    font-style: italic;
+}
+
+.india-presentations-description {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #000000;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+/* Responsive Design for Presentations Sections */
+@media (max-width: 768px) {
+    .aurora-presentations-header h2 {
+        font-size: 2rem;
+    }
+    
+    .aurora-presentations-quote {
+        font-size: 1.4rem;
+        padding: 1.5rem;
+    }
+    
+    .india-presentations-content h2 {
+        font-size: 2rem;
+    }
+    
+    .india-presentations-tagline {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .aurora-presentations-section,
+    .india-presentations-section {
+        padding: 60px 0;
+    }
+    
+    .aurora-presentations-header h2 {
+        font-size: 1.8rem;
+    }
+    
+    .aurora-presentations-quote {
+        font-size: 1.2rem;
+    }
+    
+    .india-presentations-content h2 {
+        font-size: 1.8rem;
+    }
+    
+    .india-presentations-flag {
+        font-size: 3rem;
+    }
+}

@@ -1,0 +1,917 @@
+/* GT Cloud Page Styles */
+
+.gt-cloud-hero {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    color: white;
+    padding: 120px 0 80px;
+    text-align: center;
+}
+
+.gt-cloud-hero .hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.gt-cloud-hero h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.gt-cloud-hero h1 i {
+    color: #667eea;
+    margin-right: 1rem;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: #ecf0f1;
+}
+
+.hero-description {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    margin-bottom: 3rem;
+    opacity: 0.9;
+}
+
+.hero-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.what-is-gt-cloud {
+    padding: 80px 0;
+    background: white;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.section-header h2 i {
+    color: #667eea;
+    margin-right: 1rem;
+}
+
+.section-header p {
+    font-size: 1.1rem;
+    color: #6c757d;
+    line-height: 1.7;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.gt-cloud-definition {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.definition-text {
+    font-size: 1.3rem;
+    color: #2c3e50;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    font-weight: 500;
+}
+
+.definition-detail {
+    font-size: 1.1rem;
+    color: #6c757d;
+    line-height: 1.7;
+}
+
+.core-purpose-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-align: center;
+}
+
+.purpose-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.purpose-content h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+
+.purpose-content h2 i {
+    margin-right: 1rem;
+}
+
+.purpose-intro {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.mission-quote {
+    font-size: 2rem;
+    font-weight: 600;
+    font-style: italic;
+    margin: 3rem 0;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    border-left: 4px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+.purpose-description {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    opacity: 0.9;
+}
+
+.key-capabilities-section {
+    padding: 80px 0;
+    background: #f8f9fa;
+}
+
+.capabilities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.capability-item {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 15px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    border: 1px solid #e9ecef;
+}
+
+.capability-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+.capability-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 2rem;
+    color: white;
+    font-size: 2rem;
+}
+
+.capability-item h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.capability-item p {
+    color: #6c757d;
+    line-height: 1.6;
+}
+
+.ecosystem-overview-section {
+    padding: 80px 0;
+    background: white;
+}
+
+.ecosystem-highlight {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #4a5568;
+    font-style: italic;
+    margin-top: 1rem;
+}
+
+.ecosystem-table-wrapper {
+    margin-top: 4rem;
+}
+
+.ecosystem-table-wrapper h3 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.ecosystem-table-wrapper h3 i {
+    color: #667eea;
+    margin-right: 0.8rem;
+}
+
+.ecosystem-table {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border: 1px solid #e9ecef;
+}
+
+.table-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    font-weight: 600;
+}
+
+.table-row {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.table-row:last-child {
+    border-bottom: none;
+}
+
+.table-row:nth-child(even) {
+    background: #f8f9fa;
+}
+
+.table-cell {
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.layer-name {
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.layer-name i {
+    color: #667eea;
+    margin-right: 0.8rem;
+    font-size: 1.1rem;
+}
+
+.layer-description {
+    color: #6c757d;
+    line-height: 1.6;
+}
+
+.connections-section {
+    padding: 80px 0;
+    background: #f8f9fa;
+}
+
+.connection-workflow {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+.workflow-step {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    min-width: 220px;
+    max-width: 250px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.workflow-step:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+.step-number {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin: 0 auto 1.5rem;
+}
+
+.step-content h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 0.8rem;
+}
+
+.step-content p {
+    font-size: 0.95rem;
+    color: #6c757d;
+    line-height: 1.5;
+}
+
+.workflow-arrow {
+    font-size: 2rem;
+    color: #667eea;
+    font-weight: bold;
+}
+
+.vision-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    color: white;
+    text-align: center;
+}
+
+.vision-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.vision-content h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+
+.vision-content h2 i {
+    color: #667eea;
+    margin-right: 1rem;
+}
+
+.vision-text {
+    font-size: 1.3rem;
+    line-height: 1.8;
+    margin-bottom: 3rem;
+    opacity: 0.9;
+}
+
+.vision-statement {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2.5rem;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 3rem;
+}
+
+.vision-statement h3 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 1.6;
+}
+
+.vision-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .gt-cloud-hero h1 {
+        font-size: 3rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.3rem;
+    }
+    
+    .hero-description {
+        font-size: 1.1rem;
+    }
+    
+    .hero-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .section-header h2 {
+        font-size: 2rem;
+    }
+    
+    .definition-text {
+        font-size: 1.2rem;
+    }
+    
+    .mission-quote {
+        font-size: 1.5rem;
+        padding: 1.5rem;
+    }
+    
+    .capabilities-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .table-header,
+    .table-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .table-cell {
+        padding: 1rem;
+    }
+    
+    .connection-workflow {
+        flex-direction: column;
+    }
+    
+    .workflow-arrow {
+        transform: rotate(90deg);
+    }
+    
+    .workflow-step {
+        min-width: 280px;
+    }
+    
+    .vision-content h2 {
+        font-size: 2rem;
+    }
+    
+    .vision-text {
+        font-size: 1.1rem;
+    }
+    
+    .vision-statement {
+        padding: 2rem;
+    }
+    
+    .vision-statement h3 {
+        font-size: 1.4rem;
+    }
+    
+    .vision-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .gt-cloud-hero {
+        padding: 100px 0 60px;
+    }
+    
+    .gt-cloud-hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .section-header h2 {
+        font-size: 1.8rem;
+    }
+    
+    .definition-text {
+        font-size: 1.1rem;
+    }
+    
+    .mission-quote {
+        font-size: 1.3rem;
+        padding: 1rem;
+    }
+    
+    .capability-item {
+        padding: 2rem;
+    }
+    
+    .workflow-step {
+        min-width: 250px;
+        padding: 1.5rem;
+    }
+    
+    .vision-statement {
+        padding: 1.5rem;
+    }
+}/*
+ Mission Detailed Section */
+.mission-detailed-section {
+    padding: 80px 0;
+    background: white;
+}
+
+.mission-detailed-content h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.mission-detailed-content h2 i {
+    color: #667eea;
+    margin-right: 1rem;
+}
+
+.mission-detailed-intro {
+    font-size: 1.2rem;
+    color: #4a5568;
+    text-align: center;
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.mission-detailed-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.mission-detailed-item {
+    background: #f8f9fa;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid #e9ecef;
+}
+
+.mission-detailed-item:hover {
+    background: white;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transform: translateY(-5px);
+}
+
+.mission-detailed-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    color: white;
+    font-size: 1.8rem;
+}
+
+.mission-detailed-item h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+}
+
+.mission-detailed-item p {
+    color: #6c757d;
+    line-height: 1.6;
+}
+
+/* Aurora Detailed Section */
+.aurora-detailed-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    color: white;
+    text-align: center;
+}
+
+.aurora-detailed-header h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.aurora-detailed-header h2 i {
+    color: #667eea;
+    margin-right: 1rem;
+}
+
+.aurora-detailed-subtitle {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 3rem;
+    opacity: 0.9;
+}
+
+.aurora-detailed-description {
+    max-width: 800px;
+    margin: 0 auto 4rem;
+}
+
+.aurora-detailed-main {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.aurora-detailed-quote {
+    font-size: 1.8rem;
+    font-weight: 600;
+    font-style: italic;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 15px;
+    border-left: 4px solid #667eea;
+    backdrop-filter: blur(10px);
+}
+
+.aurora-detailed-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.aurora-detailed-feature {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.aurora-detailed-feature i {
+    font-size: 2.5rem;
+    color: #667eea;
+    margin-bottom: 1rem;
+}
+
+.aurora-detailed-feature h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.aurora-detailed-feature p {
+    opacity: 0.9;
+    line-height: 1.6;
+}
+
+/* Impact Detailed Section */
+.impact-detailed-section {
+    padding: 80px 0;
+    background: #f8f9fa;
+}
+
+.impact-detailed-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.impact-detailed-header h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.impact-detailed-header h2 i {
+    color: #667eea;
+    margin-right: 1rem;
+}
+
+.impact-detailed-header p {
+    font-size: 1.2rem;
+    color: #4a5568;
+}
+
+.impact-detailed-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.impact-detailed-stat {
+    background: white;
+    padding: 2.5rem 2rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    border: 1px solid #e9ecef;
+    transition: all 0.3s ease;
+}
+
+.impact-detailed-stat:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+.stat-detailed-number {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #667eea;
+    margin-bottom: 0.5rem;
+}
+
+.stat-detailed-label {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.impact-detailed-stat p {
+    color: #6c757d;
+    line-height: 1.6;
+}
+
+/* India Detailed Section */
+.india-detailed-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #ff9933 0%, #138808 50%, #000080 100%);
+    color: white;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.india-detailed-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+.india-detailed-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.india-detailed-flag {
+    font-size: 4rem;
+    margin-bottom: 2rem;
+    color: #fff;
+}
+
+.india-detailed-content h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.india-detailed-tagline {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    font-style: italic;
+}
+
+.india-detailed-description {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 3rem;
+    color: #000000;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+.india-detailed-highlights {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.india-detailed-highlight {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 1.5rem;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.india-detailed-highlight i {
+    font-size: 2rem;
+    color: #fff;
+}
+
+.india-detailed-highlight span {
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+/* Responsive Design for Detailed Sections */
+@media (max-width: 768px) {
+    .mission-detailed-content h2 {
+        font-size: 2rem;
+    }
+    
+    .mission-detailed-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .mission-detailed-item {
+        padding: 1.5rem;
+    }
+    
+    .aurora-detailed-header h2 {
+        font-size: 2rem;
+    }
+    
+    .aurora-detailed-quote {
+        font-size: 1.4rem;
+        padding: 1.5rem;
+    }
+    
+    .aurora-detailed-features {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .impact-detailed-header h2 {
+        font-size: 2rem;
+    }
+    
+    .impact-detailed-stats {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .stat-detailed-number {
+        font-size: 2.5rem;
+    }
+    
+    .india-detailed-content h2 {
+        font-size: 2rem;
+    }
+    
+    .india-detailed-tagline {
+        font-size: 1.3rem;
+    }
+    
+    .india-detailed-highlights {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .mission-detailed-section,
+    .aurora-detailed-section,
+    .impact-detailed-section,
+    .india-detailed-section {
+        padding: 60px 0;
+    }
+    
+    .mission-detailed-content h2 {
+        font-size: 1.8rem;
+    }
+    
+    .aurora-detailed-header h2 {
+        font-size: 1.8rem;
+    }
+    
+    .aurora-detailed-quote {
+        font-size: 1.2rem;
+    }
+    
+    .impact-detailed-header h2 {
+        font-size: 1.8rem;
+    }
+    
+    .india-detailed-content h2 {
+        font-size: 1.8rem;
+    }
+    
+    .india-detailed-highlights {
+        grid-template-columns: 1fr;
+    }
+    
+    .india-detailed-flag {
+        font-size: 3rem;
+    }
+}

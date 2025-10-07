@@ -1,0 +1,61 @@
+/* COMPLETE REMOVAL OF ALL HOVER EFFECTS FOR PRESENTATIONS */
+
+/* Remove ALL hover effects from content cards */
+.content-card,
+.content-card:hover,
+.content-card:focus,
+.content-card:active {
+    cursor: default !important;
+    transform: none !important;
+    transition: none !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
+    background: white !important;
+}
+
+/* Remove hover from featured items */
+.featured-item,
+.featured-item:hover,
+.featured-item:focus,
+.featured-item:active {
+    cursor: default !important;
+    transform: none !important;
+    transition: none !important;
+    box-shadow: none !important;
+}
+
+/* Remove hover from data-content-id elements */
+[data-content-id],
+[data-content-id]:hover,
+[data-content-id]:focus,
+[data-content-id]:active {
+    cursor: default !important;
+    transform: none !important;
+    transition: none !important;
+    box-shadow: none !important;
+}
+
+/* Remove play overlay hover effects */
+.play-overlay,
+.play-overlay:hover {
+    opacity: 0.8 !important;
+    transform: translate(-50%, -50%) !important;
+    transition: none !important;
+}
+
+/* Global override for presentation sections */
+.content-section *,
+.featured-content *,
+.content-grid *,
+.content-list * {
+    cursor: default !important;
+}
+
+.content-section *:hover,
+.featured-content *:hover,
+.content-grid *:hover,
+.content-list *:hover {
+    transform: none !important;
+    box-shadow: none !important;
+    cursor: default !important;
+    transition: none !important;
+}
