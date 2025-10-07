@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Presentations - GT Sounds</title>
+    <title>GT Cloud Presentations - GT Sounds</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/presentations.css" rel="stylesheet">
 </head>
 
 <body>
@@ -34,112 +35,339 @@
                     <i class="fas fa-graduation-cap"></i>
                     Documents
                 </a>
+                <a href="/gt-cloud" class="nav-link">
+                    <i class="fas fa-headphones"></i>
+                    GT Cloud
+                </a>
                 <a href="/admin-login" class="nav-link admin-btn">
                     <i class="fas fa-cog"></i>
-                    Admin Login
+                    Admin
                 </a>
             </div>
         </div>
     </nav>
 
-    <!-- Page Header -->
-    <section class="page-header">
+    <!-- Hero Section -->
+    <section class="presentations-hero">
         <div class="container">
-            <div class="header-content">
-                <div class="header-text">
-                    <h1><i class="fas fa-cloud"></i> Presentations</h1>
-                    <p>Secure, scalable cloud platform for music storage, mixing, and collaboration</p>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Search and Filters -->
-    <section class="search-filters">
-        <div class="container">
-            <div class="search-box">
-                <input type="text" id="searchInput" placeholder="Search presentations...">
-                <button id="searchBtn"><i class="fas fa-search"></i></button>
-            </div>
-            <div class="filters">
-                <select id="sortFilter">
-                    <option value="newest">Newest First</option>
-                    <option value="oldest">Oldest First</option>
-                    <option value="size">By Size</option>
-                    <option value="title">By Title</option>
-                </select>
-                <select id="categoryFilter">
-                    <option value="">All Categories</option>
-                </select>
-            </div>
-        </div>
-    </section>
-
-    <!-- Featured Presentation -->
-    <section class="featured-content">
-        <div class="container">
-            <h2>Featured Presentation</h2>
-            <div id="featuredPresentation">
-                <!-- Featured presentation will be loaded here -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Presentations Grid -->
-    <section class="content-section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">All Presentations</h2>
-                <div class="view-options">
-                    <button class="view-btn active" data-view="grid">
-                        <i class="fas fa-th"></i>
-                    </button>
-                    <button class="view-btn" data-view="list">
-                        <i class="fas fa-list"></i>
-                    </button>
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1><i class="fas fa-cloud"></i> GT Cloud Presentations</h1>
+                    <p>Secure, scalable cloud platform for music storage, mixing, and collaboration. Experience the future of audio cloud technology.</p>
+                    <div class="hero-tags">
+                        <span class="tag">☁️ Cloud Storage</span>
+                        <span class="tag">🎵 Audio Mixing</span>
+                        <span class="tag">🤝 Collaboration</span>
+                        <span class="tag">🔒 Secure</span>
+                    </div>
                 </div>
             </div>
-            <div class="content-grid" id="presentationsGrid">
-                <!-- Presentations will be loaded here -->
-            </div>
-            <div class="content-list" id="presentationsList" style="display: none;">
-                <!-- List view will be loaded here -->
-            </div>
-            <div class="load-more">
-                <button id="loadMoreBtn" class="btn btn-secondary">
-                    <i class="fas fa-plus"></i>
-                    Load More
+        </div>
+    </section>
+
+    <!-- Category Filter -->
+    <section class="category-filter-section">
+        <div class="container">
+            <div class="category-filters">
+                <button class="category-btn active" data-category="all">
+                    <i class="fas fa-th"></i> All Categories
+                </button>
+                <button class="category-btn" data-category="video">
+                    <i class="fas fa-video"></i> Video Presentations
+                </button>
+                <button class="category-btn" data-category="slide">
+                    <i class="fas fa-presentation"></i> Slide Presentations
+                </button>
+                <button class="category-btn" data-category="interactive">
+                    <i class="fas fa-mouse-pointer"></i> Interactive
                 </button>
             </div>
         </div>
     </section>
 
-    <!-- Media Player Modal -->
-    <div id="mediaModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <div class="media-player">
-                <h3 id="mediaTitle"></h3>
-                <div id="mediaContainer">
-                    <!-- Media player will be inserted here -->
+    <!-- Presentations Grid -->
+    <section class="presentations-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured Presentations</h2>
+                <p>Explore our comprehensive collection of GT Cloud presentations and demos</p>
+            </div>
+            
+            <div id="presentationsGrid" class="presentations-grid">
+                <!-- Presentations will be loaded dynamically -->
+            </div>
+            
+            <!-- Static fallback presentations -->
+            <div id="staticPresentations" class="presentations-grid">
+                <div class="presentation-card" data-type="slide">
+                    <div class="presentation-thumbnail">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <div class="video-badge">
+                            <i class="fas fa-presentation"></i> Slides
+                        </div>
+                    </div>
+                    <div class="presentation-content">
+                        <h3>GT Cloud Architecture Overview</h3>
+                        <p>Complete overview of GT Cloud's scalable infrastructure and audio processing capabilities.</p>
+                        <div class="presentation-meta">
+                            <span class="duration"><i class="fas fa-clock"></i> 15 min</span>
+                            <span class="category architecture">Architecture</span>
+                        </div>
+                        <button class="btn btn-primary presentation-btn" onclick="openPresentation('cloud-architecture')">
+                            <i class="fas fa-play"></i> View Presentation
+                        </button>
+                    </div>
                 </div>
-                <p id="mediaDescription"></p>
-                <div class="media-info">
-                    <div class="media-tags" id="mediaTags"></div>
-                    <div class="media-meta" id="mediaMeta"></div>
+
+                <div class="presentation-card" data-type="video">
+                    <div class="presentation-thumbnail">
+                        <i class="fas fa-music"></i>
+                        <div class="video-badge">
+                            <i class="fas fa-video"></i> Video
+                        </div>
+                    </div>
+                    <div class="presentation-content">
+                        <h3>Audio Processing Pipeline</h3>
+                        <p>Deep dive into GT Cloud's real-time audio processing and Dolby Atmos integration.</p>
+                        <div class="presentation-meta">
+                            <span class="duration"><i class="fas fa-clock"></i> 20 min</span>
+                            <span class="category technical">Technical</span>
+                        </div>
+                        <button class="btn btn-primary presentation-btn" onclick="openPresentation('audio-pipeline')">
+                            <i class="fas fa-play"></i> View Presentation
+                        </button>
+                    </div>
+                </div>
+
+                <div class="presentation-card" data-type="interactive">
+                    <div class="presentation-thumbnail">
+                        <i class="fas fa-users"></i>
+                        <div class="video-badge">
+                            <i class="fas fa-mouse-pointer"></i> Interactive
+                        </div>
+                    </div>
+                    <div class="presentation-content">
+                        <h3>Collaboration Features</h3>
+                        <p>How GT Cloud enables seamless collaboration between artists, producers, and engineers.</p>
+                        <div class="presentation-meta">
+                            <span class="duration"><i class="fas fa-clock"></i> 12 min</span>
+                            <span class="category features">Features</span>
+                        </div>
+                        <button class="btn btn-primary presentation-btn" onclick="openPresentation('collaboration')">
+                            <i class="fas fa-play"></i> View Presentation
+                        </button>
+                    </div>
+                </div>
+
+                <div class="presentation-card" data-type="video">
+                    <div class="presentation-thumbnail">
+                        <i class="fas fa-shield-alt"></i>
+                        <div class="video-badge">
+                            <i class="fas fa-video"></i> Video
+                        </div>
+                    </div>
+                    <div class="presentation-content">
+                        <h3>Security & Privacy</h3>
+                        <p>Enterprise-grade security features and privacy controls for your audio content.</p>
+                        <div class="presentation-meta">
+                            <span class="duration"><i class="fas fa-clock"></i> 18 min</span>
+                            <span class="category security">Security</span>
+                        </div>
+                        <button class="btn btn-primary presentation-btn" onclick="openPresentation('security')">
+                            <i class="fas fa-play"></i> View Presentation
+                        </button>
+                    </div>
+                </div>
+
+                <div class="presentation-card" data-type="video">
+                    <div class="presentation-thumbnail">
+                        <i class="fas fa-brain"></i>
+                        <div class="video-badge">
+                            <i class="fas fa-video"></i> Video
+                        </div>
+                    </div>
+                    <div class="presentation-content">
+                        <h3>AI-Powered Mastering</h3>
+                        <p>Revolutionary AI mastering technology that adapts to your creative vision.</p>
+                        <div class="presentation-meta">
+                            <span class="duration"><i class="fas fa-clock"></i> 25 min</span>
+                            <span class="category ai-technology">AI Technology</span>
+                        </div>
+                        <button class="btn btn-primary presentation-btn" onclick="openPresentation('ai-mastering')">
+                            <i class="fas fa-play"></i> View Presentation
+                        </button>
+                    </div>
+                </div>
+
+                <div class="presentation-card" data-type="slide">
+                    <div class="presentation-thumbnail">
+                        <i class="fas fa-chart-line"></i>
+                        <div class="video-badge">
+                            <i class="fas fa-presentation"></i> Slides
+                        </div>
+                    </div>
+                    <div class="presentation-content">
+                        <h3>Analytics & Insights</h3>
+                        <p>Comprehensive analytics dashboard for tracking performance and engagement.</p>
+                        <div class="presentation-meta">
+                            <span class="duration"><i class="fas fa-clock"></i> 14 min</span>
+                            <span class="category analytics">Analytics</span>
+                        </div>
+                        <button class="btn btn-primary presentation-btn" onclick="openPresentation('analytics')">
+                            <i class="fas fa-play"></i> View Presentation
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GT Cloud Deep Dive Section -->
+    <section class="gt-cloud-detailed-section">
+        <div class="container">
+            <div class="gt-cloud-detailed-header">
+                <h2><i class="fas fa-headphones"></i> What is GT Cloud?</h2>
+                <p class="gt-cloud-detailed-intro">GT Cloud is a next-generation audio technology platform built to power the future of sound creation, storage, and collaboration. It's a secure and scalable cloud infrastructure designed specifically for the music, audio production, and creative industries.</p>
+            </div>
+
+            <div class="gt-cloud-detailed-purpose">
+                <div class="detailed-purpose-card">
+                    <h3><i class="fas fa-cloud"></i> Core Purpose</h3>
+                    <blockquote>"To give every creator the power of a world-class studio, accessible from anywhere."</blockquote>
+                    <p>It eliminates the limitations of hardware, distance, and data storage — enabling real-time, lossless, and collaborative workflows through the cloud.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="cloud-features-section">
+        <div class="container">
+            <h2><i class="fas fa-cogs"></i> Key Capabilities</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                    </div>
+                    <h3>Cloud-Based Audio Storage</h3>
+                    <p>Upload and store uncompressed audio formats like WAV, AIFF, FLAC, or even Dolby Atmos masters without losing fidelity.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-sliders-h"></i>
+                    </div>
+                    <h3>Cloud Mixing & Mastering</h3>
+                    <p>Mix, master, and balance tracks directly in the cloud using advanced tools or integrated DAW plugins.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Real-Time Collaboration</h3>
+                    <p>Invite multiple collaborators to edit or review sessions simultaneously, with version tracking and audio preview.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>AI-Assisted Tools</h3>
+                    <p>Intelligent mixing suggestions, loudness balancing, and metadata tagging powered by GT's AI systems.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <h3>Dolby Atmos & Multi-Channel Support</h3>
+                    <p>Handle immersive formats (up to 7.2.4 channels) for spatial and cinematic sound experiences.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Secure Infrastructure</h3>
+                    <p>Protected by multi-layer encryption, with full GDPR and copyright compliance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Presentation Modal -->
+    <div id="presentationModal" class="presentation-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Presentation Title</h3>
+                <button class="close-btn" onclick="closePresentation()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="presentationContent" class="presentation-viewer">
+                    <!-- Presentation content will be loaded here -->
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="footer">
+    <!-- Aurora Codec Section -->
+    <section class="aurora-presentations-section">
         <div class="container">
-            <p>&copy; 2024 StreamHub. All rights reserved. | Free streaming platform for everyone</p>
+            <div class="aurora-presentations-content">
+                <div class="aurora-presentations-header">
+                    <h2><i class="fas fa-code"></i> Aurora Codec</h2>
+                    <p class="aurora-presentations-subtitle">GT Sounds' Proprietary Audio Engine</p>
+                </div>
+                <div class="aurora-presentations-description">
+                    <p class="aurora-presentations-main">The Aurora Codec is GT Sounds' proprietary audio engine. It offers AI-driven compression that keeps full fidelity with smaller file sizes — perfect for Dolby Atmos and spatial sound experiences.</p>
+                    <blockquote class="aurora-presentations-quote">
+                        "Uncompressed sound, intelligently optimized."
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GT Sounds for India Section -->
+    <section class="india-presentations-section">
+        <div class="container">
+            <div class="india-presentations-content">
+                <div class="india-presentations-flag">
+                    <i class="fas fa-flag"></i>
+                </div>
+                <h2>GT Sounds for India</h2>
+                <h3 class="india-presentations-tagline">Built in India, for the world.</h3>
+                <p class="india-presentations-description">GT Sounds represents India's rise in creative technology, education, and entrepreneurship — making the nation a leader in sound innovation.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="gt-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-music"></i>
+                        <span>GT Sounds</span>
+                    </div>
+                    <p>Where Innovation Meets Rhythm</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/podcasts">Podcasts</a></li>
+                        <li><a href="/presentations">Presentations</a></li>
+                        <li><a href="/documents">Documents</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 GT Sounds. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
+    <script src="/js/main.js"></script>
     <script src="/js/presentations.js"></script>
 </body>
 
