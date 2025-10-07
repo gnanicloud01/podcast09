@@ -341,24 +341,30 @@ class PresentationsPage {
         const url = content.s3_url;
         let mediaElement = '';
         
-        if (url.match(/\.(mp4|webm|ogg|mov)$/i)) {
+        console.log('Loading presentation:', content.title, 'URL:', url);
+        
+        if (url.match(/\.(mp4|webm|ogg|mov|avi|mkv)$/i)) {
             mediaElement = `
                 <div class="video-player-container">
                     <div class="video-player">
-                        <video id="videoPlayer" controls preload="metadata">
+                        <video id="videoPlayer" controls preload="metadata" style="width: 100%; height: auto; max-height: 500px;">
                             <source src="${url}" type="video/mp4">
+                            <source src="${url}" type="video/webm">
+                            <source src="${url}" type="video/ogg">
                             Your browser does not support the video element.
+                            <p>Your browser doesn't support HTML5 video. <a href="${url}" target="_blank">Download the video</a>.</p>
                         </video>
                         <div class="video-overlay">
                             <div class="video-info">
                                 <h3 class="video-title">${this.escapeHtml(content.title)}</h3>
-                                <p class="video-subtitle">StreamHub Presentation</p>
+                                <p class="video-subtitle">GT Sounds Presentation</p>
                             </div>
                         </div>
                     </div>
                 </div>
             `;
         } else {
+            // For non-video files (PDFs, presentations, etc.)
             mediaElement = `
                 <div class="presentation-viewer">
                     <div class="presentation-header">
@@ -377,12 +383,17 @@ class PresentationsPage {
                             </button>
                         </div>
                     </div>
-                    <div class="presentation-frame">
-                        <div class="presentation-loading" id="presentationLoading">
-                            <div class="loading-spinner"></div>
+                    <div class="presentation-frame" style="height: 500px; border: 1px solid #ddd; border-radius: 8px; overflow: hidden;">
+                        <div class="presentation-loading" id="presentationLoading" style="display: flex; align-items: center; justify-content: center; height: 100%; background: #f5f5f5;">
+                            <div class="loading-spinner" style="margin-right: 10px;">⏳</div>
                             <span>Loading presentation...</span>
                         </div>
-                        <iframe src="${url}" frameborder="0" allowfullscreen onload="document.getElementById('presentationLoading').style.display='none'">
+                        <iframe src="${url}" 
+                                frameborder="0" 
+                                allowfullscreen 
+                                style="width: 100%; height: 100%; display: none;"
+                                onload="this.style.display='block'; document.getElementById('presentationLoading').style.display='none';"
+                                onerror="document.getElementById('presentationLoading').innerHTML='<p>Could not load presentation. <a href=&quot;${url}&quot; target=&quot;_blank&quot;>Open in new tab</a></p>'">
                             <p>Your browser does not support iframes. <a href="${url}" target="_blank">Open presentation</a>.</p>
                         </iframe>
                     </div>
@@ -410,6 +421,35 @@ class PresentationsPage {
         }
 
         container.innerHTML = mediaElement;
+
+        // Add error handling for video
+        setTimeout(() => {
+            const video = document.getElementById('videoPlayer');
+            if (video) {
+                video.addEventListener('error', function(e) {
+                    console.error('Video loading error:', e);
+                    const errorMsg = `
+                        <div style="padding: 20px; text-align: center; background: #f8f9fa; border-radius: 8px;">
+                            <p><strong>Video could not be loaded</strong></p>
+                            <p>The video format might not be supported or the URL might be incorrect.</p>
+                            <a href="${url}" target="_blank" class="btn btn-primary">
+                                <i class="fas fa-external-link-alt"></i>
+                                Open in New Tab
+                            </a>
+                        </div>
+                    `;
+                    container.innerHTML = errorMsg;
+                });
+                
+                video.addEventListener('loadstart', function() {
+                    console.log('Video loading started');
+                });
+                
+                video.addEventListener('canplay', function() {
+                    console.log('Video can start playing');
+                });
+            }
+        }, 100);
 
         // Show tags only (remove metadata)
         if (content.tags) {
