@@ -13,12 +13,20 @@ class DatabaseInterface {
 
     // Initialize database
     async init() {
-        if (this.isPostgreSQL) {
-            await initPostgreSQL();
-            console.log('✅ Using PostgreSQL database');
-        } else {
+        try {
+            if (this.isPostgreSQL) {
+                await initPostgreSQL();
+                console.log('✅ Using PostgreSQL database');
+            } else {
+                await initSQLite();
+                console.log('✅ Using SQLite database');
+            }
+        } catch (error) {
+            console.log('⚠️ PostgreSQL failed, falling back to SQLite');
+            this.isPostgreSQL = false;
+            this.db = sqliteDb;
             await initSQLite();
-            console.log('✅ Using SQLite database');
+            console.log('✅ Using SQLite database (fallback)');
         }
     }
 

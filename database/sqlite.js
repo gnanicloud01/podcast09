@@ -28,17 +28,35 @@ const initDatabase = () => {
         duration INTEGER,
         file_size INTEGER,
         tags TEXT,
+        category_id INTEGER,
+        video_type TEXT CHECK (video_type IN ('slide', 'video', 'interactive')),
+        is_featured BOOLEAN DEFAULT 0,
+        view_count INTEGER DEFAULT 0,
         created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-        updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
+        updated_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+        FOREIGN KEY (category_id) REFERENCES categories (id)
       )`);
 
       // Categories table
       db.run(`CREATE TABLE IF NOT EXISTS categories (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         name TEXT NOT NULL,
+        description TEXT,
+        icon TEXT,
+        color TEXT,
         type TEXT NOT NULL CHECK(type IN ('podcast', 'presentation', 'document')),
         created_at DATETIME DEFAULT CURRENT_TIMESTAMP
       )`);
+
+      // Insert default presentation categories
+      db.run(`INSERT OR IGNORE INTO categories (name, description, icon, color, type) VALUES
+        ('Architecture', 'System architecture and infrastructure presentations', 'fas fa-building', '#667eea', 'presentation'),
+        ('Technical', 'Technical deep-dives and implementation details', 'fas fa-cogs', '#764ba2', 'presentation'),
+        ('Features', 'Product features and functionality showcases', 'fas fa-star', '#f093fb', 'presentation'),
+        ('Security', 'Security, privacy and compliance presentations', 'fas fa-shield-alt', '#f5576c', 'presentation'),
+        ('AI Technology', 'Artificial intelligence and machine learning', 'fas fa-brain', '#4facfe', 'presentation'),
+        ('Analytics', 'Data analytics and business intelligence', 'fas fa-chart-line', '#43e97b', 'presentation')
+      `);
 
       // Content categories junction table
       db.run(`CREATE TABLE IF NOT EXISTS content_categories (
