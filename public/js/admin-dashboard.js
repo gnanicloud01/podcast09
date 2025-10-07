@@ -59,6 +59,9 @@ class AdminDashboard {
 
         // Content form
         document.getElementById('contentForm').addEventListener('submit', this.saveContent.bind(this));
+        
+        // Content type change handler
+        document.getElementById('contentType').addEventListener('change', this.handleContentTypeChange.bind(this));
 
         // Modal close buttons
         document.querySelectorAll('.close, #cancelBtn').forEach(btn => {
@@ -256,9 +259,47 @@ class AdminDashboard {
             title.textContent = 'Add Content';
             form.reset();
             document.getElementById('contentId').value = '';
+            this.handleContentTypeChange(); // Initialize form state
         }
 
+        // Load categories for presentations
+        this.loadCategoriesForForm();
         modal.style.display = 'block';
+    }
+
+    handleContentTypeChange() {
+        const contentType = document.getElementById('contentType').value;
+        const videoTypeGroup = document.getElementById('videoTypeGroup');
+        const categoryGroup = document.getElementById('categoryGroup');
+        
+        if (contentType === 'presentation') {
+            videoTypeGroup.style.display = 'block';
+            categoryGroup.style.display = 'block';
+        } else {
+            videoTypeGroup.style.display = 'none';
+            categoryGroup.style.display = 'none';
+        }
+    }
+
+    async loadCategoriesForForm() {
+        try {
+            const response = await fetch('/admin/categories?type=presentation');
+            const result = await response.json();
+            
+            if (result.success) {
+                const categorySelect = document.getElementById('categoryId');
+                categorySelect.innerHTML = '<option value="">Select Category</option>';
+                
+                result.categories.forEach(category => {
+                    const option = document.createElement('option');
+                    option.value = category.id;
+                    option.textContent = category.name;
+                    categorySelect.appendChild(option);
+                });
+            }
+        } catch (error) {
+            console.error('Error loading categories:', error);
+        }
     }
 
     async loadContentForEdit(contentId) {
@@ -277,6 +318,11 @@ class AdminDashboard {
                 document.getElementById('contentDuration').value = content.duration || '';
                 document.getElementById('contentFileSize').value = content.file_size || '';
                 document.getElementById('contentTags').value = content.tags || '';
+                document.getElementById('videoType').value = content.video_type || 'slide';
+                document.getElementById('categoryId').value = content.category_id || '';
+                document.getElementById('isFeatured').checked = content.is_featured || false;
+                
+                this.handleContentTypeChange(); // Show/hide relevant fields
             }
         } catch (error) {
             console.error('Error loading content for edit:', error);
@@ -296,7 +342,10 @@ class AdminDashboard {
             thumbnail_url: formData.get('thumbnail_url'),
             duration: formData.get('duration') ? parseInt(formData.get('duration')) : null,
             file_size: formData.get('file_size') ? parseInt(formData.get('file_size')) : null,
-            tags: formData.get('tags')
+            tags: formData.get('tags'),
+            video_type: formData.get('video_type'),
+            category_id: formData.get('category_id') ? parseInt(formData.get('category_id')) : null,
+            is_featured: formData.get('is_featured') ? 1 : 0
         };
 
         console.log('Content data:', contentData);
