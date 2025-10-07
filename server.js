@@ -79,23 +79,27 @@ app.get('/documents', (req, res) => {
   res.render('documents');
 });
 
+app.get('/gt-cloud', (req, res) => {
+  res.render('gt-cloud');
+});
+
 // Simple admin creation endpoint
 app.get('/create-admin-now', async (req, res) => {
   try {
     const bcrypt = require('bcryptjs');
-    
+
     // Delete any existing admin
     await database.run('DELETE FROM admins WHERE email = ?', ['gnaneshwar14']);
-    
+
     // Create fresh admin
     const hashedPassword = await bcrypt.hash('gnani@1429', 10);
     const result = await database.run(
       'INSERT INTO admins (email, password, name) VALUES (?, ?, ?)',
       ['gnaneshwar14', hashedPassword, 'Gnaneshwar']
     );
-    
-    res.json({ 
-      success: true, 
+
+    res.json({
+      success: true,
       message: 'Admin user created successfully!',
       adminId: result.lastID,
       credentials: {
@@ -104,8 +108,8 @@ app.get('/create-admin-now', async (req, res) => {
       }
     });
   } catch (error) {
-    res.json({ 
-      success: false, 
+    res.json({
+      success: false,
       error: error.message,
       message: 'Failed to create admin user'
     });
@@ -116,8 +120,8 @@ app.get('/create-admin-now', async (req, res) => {
 app.get('/debug-admin', async (req, res) => {
   try {
     const admins = await database.all('SELECT id, email, name, created_at FROM admins');
-    res.json({ 
-      success: true, 
+    res.json({
+      success: true,
       admins: admins,
       count: admins.length
     });
@@ -130,19 +134,19 @@ app.get('/debug-admin', async (req, res) => {
 app.get('/force-create-admin', async (req, res) => {
   try {
     const bcrypt = require('bcryptjs');
-    
+
     // Delete existing admin if any
     await database.run('DELETE FROM admins WHERE email = ?', ['gnaneshwar14']);
-    
+
     // Create new admin
     const hashedPassword = await bcrypt.hash('gnani@1429', 10);
     await database.run(
       'INSERT INTO admins (email, password, name) VALUES (?, ?, ?)',
       ['gnaneshwar14', hashedPassword, 'Gnaneshwar']
     );
-    
-    res.json({ 
-      success: true, 
+
+    res.json({
+      success: true,
       message: 'Admin user created successfully'
     });
   } catch (error) {
@@ -155,14 +159,14 @@ async function startServer() {
   try {
     // Initialize database
     await database.init();
-    
+
     // Auto-create admin user on startup
     try {
       const bcrypt = require('bcryptjs');
-      
+
       // Check if admin exists first
       const existingAdmin = await database.get('SELECT id FROM admins WHERE email = ?', ['gnaneshwar14']);
-      
+
       if (!existingAdmin) {
         const hashedPassword = await bcrypt.hash('gnani@1429', 10);
         await database.run(
@@ -175,7 +179,7 @@ async function startServer() {
       }
     } catch (adminError) {
       console.log('⚠️ Admin user creation error:', adminError.message);
-      
+
       // Force create admin if there's an issue
       try {
         const bcrypt = require('bcryptjs');
@@ -193,7 +197,7 @@ async function startServer() {
         console.log('❌ Could not create admin user:', forceError.message);
       }
     }
-    
+
     // Start server
     app.listen(PORT, () => {
       console.log(`🚀 Server running on http://localhost:${PORT}`);
