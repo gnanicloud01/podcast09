@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - StreamHub</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="/css/admin.css" rel="stylesheet">
+</head>
+<body>
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <i class="fas fa-play-circle"></i>
+                <span>StreamHub Admin</span>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="#dashboard" class="nav-item active" data-section="dashboard">
+                    <i class="fas fa-tachometer-alt"></i>
+                    Dashboard
+                </a>
+                <a href="#podcasts" class="nav-item" data-section="podcasts">
+                    <i class="fas fa-podcast"></i>
+                    Podcasts
+                </a>
+                <a href="#presentations" class="nav-item" data-section="presentations">
+                    <i class="fas fa-presentation"></i>
+                    Presentations
+                </a>
+                <a href="#documents" class="nav-item" data-section="documents">
+                    <i class="fas fa-file-alt"></i>
+                    Documents
+                </a>
+                <a href="#categories" class="nav-item" data-section="categories">
+                    <i class="fas fa-tags"></i>
+                    Categories
+                </a>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <button id="logoutBtn" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Logout
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="content-header">
+                <h1 id="sectionTitle">Dashboard</h1>
+                <div class="header-actions">
+                    <button id="bulkUploadBtn" class="btn btn-secondary">
+                        <i class="fas fa-upload"></i>
+                        Bulk Upload
+                    </button>
+                    <button id="addContentBtn" class="btn btn-primary">
+                        <i class="fas fa-plus"></i>
+                        Add Content
+                    </button>
+                </div>
+            </header>
+
+            <!-- Dashboard Section -->
+            <section id="dashboard-section" class="content-section active">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <i class="fas fa-podcast"></i>
+                        <div class="stat-info">
+                            <h3 id="totalPodcasts">0</h3>
+                            <p>Total Podcasts</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-presentation"></i>
+                        <div class="stat-info">
+                            <h3 id="totalPresentations">0</h3>
+                            <p>Total Presentations</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-file-alt"></i>
+                        <div class="stat-info">
+                            <h3 id="totalDocuments">0</h3>
+                            <p>Total Documents</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Content Sections -->
+            <section id="podcasts-section" class="content-section">
+                <div class="content-table-container">
+                    <table class="content-table">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Duration</th>
+                                <th>Created</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="podcastsTable">
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="presentations-section" class="content-section">
+                <div class="content-table-container">
+                    <table class="content-table">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>File Size</th>
+                                <th>Created</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="presentationsTable">
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="documents-section" class="content-section">
+                <div class="content-table-container">
+                    <table class="content-table">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>File Size</th>
+                                <th>Created</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="documentsTable">
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="categories-section" class="content-section">
+                <div class="categories-container">
+                    <div class="categories-grid" id="categoriesGrid">
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Add/Edit Content Modal -->
+    <div id="contentModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Add Content</h3>
+                <span class="close">&times;</span>
+            </div>
+            <form id="contentForm" class="content-form">
+                <input type="hidden" id="contentId">
+                
+                <div class="form-group">
+                    <label for="contentType">Type</label>
+                    <select id="contentType" name="type" required>
+                        <option value="podcast">Podcast</option>
+                        <option value="presentation">Presentation</option>
+                        <option value="document">Document</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="contentTitle">Title</label>
+                    <input type="text" id="contentTitle" name="title" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="contentDescription">Description</label>
+                    <textarea id="contentDescription" name="description" rows="3"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="contentS3Url">S3 URL</label>
+                    <input type="url" id="contentS3Url" name="s3_url" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="contentThumbnail">Thumbnail URL</label>
+                    <input type="url" id="contentThumbnail" name="thumbnail_url">
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="contentDuration">Duration (seconds)</label>
+                        <input type="number" id="contentDuration" name="duration">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contentFileSize">File Size (bytes)</label>
+                        <input type="number" id="contentFileSize" name="file_size">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="contentTags">Tags (comma separated)</label>
+                    <input type="text" id="contentTags" name="tags">
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save Content</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Bulk Upload Modal -->
+    <div id="bulkUploadModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Bulk Upload Content</h3>
+                <span class="close" id="bulkUploadClose">&times;</span>
+            </div>
+            <div class="bulk-upload-content">
+                <div class="upload-instructions">
+                    <h4><i class="fas fa-info-circle"></i> Instructions</h4>
+                    <p>Upload a CSV file with the following columns:</p>
+                    <ul>
+                        <li><strong>title</strong> - Content title (required)</li>
+                        <li><strong>description</strong> - Content description</li>
+                        <li><strong>type</strong> - podcast, presentation, or document (required)</li>
+                        <li><strong>s3_url</strong> - File URL (required)</li>
+                        <li><strong>thumbnail_url</strong> - Thumbnail image URL</li>
+                        <li><strong>duration</strong> - Duration in seconds (for podcasts)</li>
+                        <li><strong>file_size</strong> - File size in bytes</li>
+                        <li><strong>tags</strong> - Comma-separated tags</li>
+                    </ul>
+                </div>
+                
+                <div class="upload-area">
+                    <input type="file" id="csvFileInput" accept=".csv" style="display: none;">
+                    <div class="upload-dropzone" id="uploadDropzone">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <p>Click to select CSV file or drag and drop</p>
+                        <small>Only CSV files are supported</small>
+                    </div>
+                </div>
+                
+                <div class="upload-preview" id="uploadPreview" style="display: none;">
+                    <h4>Preview (First 5 rows)</h4>
+                    <div class="preview-table-container">
+                        <table class="preview-table" id="previewTable">
+                            <thead id="previewHeader"></thead>
+                            <tbody id="previewBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="upload-actions">
+                    <button type="button" class="btn btn-secondary" id="cancelBulkUpload">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="processBulkUpload" disabled>
+                        <i class="fas fa-upload"></i>
+                        Upload Content
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="message" class="message"></div>
+
+    <script src="/js/admin-dashboard.js"></script>
+</body>
+</html>

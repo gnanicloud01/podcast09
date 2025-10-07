@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GT Sounds - Where Innovation Meets Rhythm</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #2d3748; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .section { padding: 80px 0; border-bottom: 1px solid #e5e7eb; background: white !important; display: block !important; visibility: visible !important; }
+        .section h2 { font-size: 2.5rem; font-weight: 800; color: #1f2937; margin-bottom: 32px; text-align: center; }
+        .section p { font-size: 1.125rem; color: #4b5563; line-height: 1.6; margin-bottom: 20px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; margin-top: 40px; }
+        .card { background: white; border: 1px solid #e5e7eb; border-radius: 16px; padding: 32px; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+        .card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0,0,0,0.12); }
+        .navbar { background: white; position: fixed; top: 0; width: 100%; z-index: 1000; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .nav-container { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; height: 64px; }
+        .nav-logo { display: flex; align-items: center; font-size: 1.25rem; font-weight: 600; color: #8b5cf6; text-decoration: none; }
+        .nav-menu { display: flex; gap: 8px; }
+        .nav-link { text-decoration: none; color: #4a5568; font-weight: 500; padding: 8px 16px; border-radius: 6px; }
+        .nav-link:hover { color: #8b5cf6; background: #edf2f7; }
+        .admin-btn { background: #8b5cf6; color: white; }
+        .hero { padding: 120px 0 80px; background: white; text-align: center; }
+        .hero h1 { font-size: 3rem; font-weight: 800; color: #1f2937; margin-bottom: 24px; }
+        .btn { padding: 12px 24px; border-radius: 8px; font-weight: 600; text-decoration: none; display: inline-block; margin: 0 8px; }
+        .btn-primary { background: #8b5cf6; color: white; }
+        .footer { background: #1f2937; color: #9ca3af; padding: 40px 0; text-align: center; }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">
+                <i class="fas fa-music"></i>
+                <span>GT Sounds</span>
+            </a>
+            <div class="nav-menu">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/podcasts" class="nav-link">GT Music</a>
+                <a href="/presentations" class="nav-link">GT Cloud</a>
+                <a href="/documents" class="nav-link">GT University</a>
+                <a href="/admin-login" class="nav-link admin-btn">Admin</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 1. Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>GT Sounds — Where Innovation Meets Rhythm</h1>
+            <p>Experience the future of sound with world-class streaming, cloud technology, and creative ecosystems.</p>
+            <div style="margin: 32px 0;">
+                <span style="background: #f3f4f6; padding: 8px 16px; border-radius: 20px; margin: 0 8px;">🎵 Stream.</span>
+                <span style="background: #f3f4f6; padding: 8px 16px; border-radius: 20px; margin: 0 8px;">Create.</span>
+                <span style="background: #f3f4f6; padding: 8px 16px; border-radius: 20px; margin: 0 8px;">Connect.</span>
+                <span style="background: #f3f4f6; padding: 8px 16px; border-radius: 20px; margin: 0 8px;">Inspire.</span>
+            </div>
+            <div>
+                <a href="#" class="btn btn-primary">Get Started</a>
+                <a href="#" class="btn" style="border: 2px solid #8b5cf6; color: #8b5cf6;">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. About GT Sounds -->
+    <section class="section">
+        <div class="container">
+            <h2>About GT Sounds</h2>
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <p>GT Sounds is a next-generation ecosystem blending streaming services, audio innovation, and cloud infrastructure. Our mission is to empower artists, engineers, and creators with cutting-edge tools — from Dolby Atmos-level music experiences to AI-powered sound mastering.</p>
+                <p style="font-weight: 700; color: #8b5cf6; font-size: 1.25rem;">We're not just a brand — we're a movement shaping the sound of the future.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Latest Podcasts -->
+    <section class="section">
+        <div class="container">
+            <h2>🎵 Latest Podcasts</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto;">GT Sounds Music brings artist-first, high-fidelity streaming with Dolby Atmos, lossless playback and creator analytics.</p>
+            <div class="grid">
+                <div class="card">
+                    <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #8b5cf6, #a855f7); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: white; font-size: 1.5rem;">
+                        <i class="fas fa-headphones"></i>
+                    </div>
+                    <h3>Studio-Grade Quality</h3>
+                    <p>Lossless playback pipeline ensures every detail reaches your ears exactly as the artist intended.</p>
+                </div>
+                <div class="card">
+                    <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #8b5cf6, #a855f7); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: white; font-size: 1.5rem;">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <h3>Dolby Atmos & Spatial</h3>
+                    <p>Immersive multi-channel experiences for music, film scores, podcasts and live sessions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Vision & Mission -->
+    <section class="section">
+        <div class="container">
+            <h2>🚀 Vision & Mission</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; max-width: 1000px; margin: 0 auto;">
+                <div class="card">
+                    <h3>Vision</h3>
+                    <p>To revolutionize the global sound industry by building an ecosystem that connects creators, listeners, and technology.</p>
+                </div>
+                <div class="card">
+                    <h3>Mission</h3>
+                    <ul style="text-align: left; list-style: none; padding: 0;">
+                        <li style="padding: 8px 0; position: relative; padding-left: 24px;">
+                            <span style="position: absolute; left: 0; color: #8b5cf6; font-weight: bold;">✓</span>
+                            Build India's first Dolby Atmos–powered sound ecosystem
+                        </li>
+                        <li style="padding: 8px 0; position: relative; padding-left: 24px;">
+                            <span style="position: absolute; left: 0; color: #8b5cf6; font-weight: bold;">✓</span>
+                            Offer uncompressed, high-fidelity streaming
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. GT Sounds Ecosystem -->
+    <section class="section">
+        <div class="container">
+            <h2>🧩 GT Sounds Ecosystem</h2>
+            <p style="text-align: center;">Discover our comprehensive suite of audio innovation platforms</p>
+            <div class="grid">
+                <div class="card" onclick="window.location.href='/podcasts'" style="cursor: pointer;">
+                    <div style="width: 60px; height: 60px; background: #f3f4f6; border-radius: 16px; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: #8b5cf6; font-size: 1.5rem;">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h3>🎶 GT Sounds Music</h3>
+                    <p>A next-gen streaming service supporting Dolby Atmos, lossless, and multi-channel formats.</p>
+                </div>
+                <div class="card" onclick="window.location.href='/presentations'" style="cursor: pointer;">
+                    <div style="width: 60px; height: 60px; background: #f3f4f6; border-radius: 16px; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: #8b5cf6; font-size: 1.5rem;">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3>☁️ GT Cloud</h3>
+                    <p>Secure, scalable cloud platform for music storage, mixing, and collaboration.</p>
+                </div>
+                <div class="card" onclick="window.location.href='/documents'" style="cursor: pointer;">
+                    <div style="width: 60px; height: 60px; background: #f3f4f6; border-radius: 16px; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: #8b5cf6; font-size: 1.5rem;">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>🎓 GT University</h3>
+                    <p>World-class creative and technology college for media and sound innovation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Vision for India & World -->
+    <section class="section" style="background: white !important;">
+        <div class="container">
+            <h2>🌍 Our Vision for India & the World</h2>
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <div style="background: #f3f4f6; padding: 24px; border-radius: 12px; margin: 32px 0;">
+                    <p style="font-size: 1.5rem; font-weight: 700; color: #8b5cf6; margin: 0;">GT Sounds is born in India, built for the world.</p>
+                </div>
+                <p>Our vision is to make India a global sound technology hub — generating thousands of creative and tech jobs while contributing to India's GDP growth through innovation, exports, and education.</p>
+                <p><strong>We aim to connect 100M+ artists and listeners through our cloud and streaming platforms by 2030.</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Why Choose GT Sounds -->
+    <section class="section" style="background: white !important;">
+        <div class="container">
+            <h2>💡 Why Choose GT Sounds</h2>
+            <p style="text-align: center;">Built for creators and listeners with pro-grade quality.</p>
+            <div class="grid">
+                <div class="card">
+                    <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #8b5cf6, #a855f7); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: white; font-size: 1.5rem;">
+                        <i class="fas fa-headphones"></i>
+                    </div>
+                    <h3>Dolby Atmos & Spatial</h3>
+                    <p>Immersive, multi-channel audio support.</p>
+                </div>
+                <div class="card">
+                    <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #8b5cf6, #a855f7); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: white; font-size: 1.5rem;">
+                        <i class="fas fa-magic"></i>
+                    </div>
+                    <h3>AI Mastering</h3>
+                    <p>Cloud-based enhancement for creators.</p>
+                </div>
+                <div class="card">
+                    <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #8b5cf6, #a855f7); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: white; font-size: 1.5rem;">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Privacy & Security</h3>
+                    <p>GDPR + Indian Data Protection compliant.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Roadmap (2025-2030) -->
+    <section class="section" style="background: white !important;">
+        <div class="container">
+            <h2>🏗️ Future Plans (Vision 2030 Roadmap)</h2>
+            <p style="text-align: center;">Our journey towards revolutionizing the sound industry</p>
+            <div style="max-width: 800px; margin: 40px auto;">
+                <div class="card" style="margin-bottom: 20px;">
+                    <div style="display: flex; align-items: center; gap: 20px;">
+                        <div style="background: linear-gradient(135deg, #8b5cf6, #a855f7); color: white; padding: 12px 20px; border-radius: 20px; font-weight: 700;">2025</div>
+                        <div style="text-align: left;">
+                            <h4>Launch GT Sounds Music Beta & GT Cloud prototype</h4>
+                            <p>Initial platform launch with core streaming and cloud features.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card" style="margin-bottom: 20px;">
+                    <div style="display: flex; align-items: center; gap: 20px;">
+                        <div style="background: linear-gradient(135deg, #8b5cf6, #a855f7); color: white; padding: 12px 20px; border-radius: 20px; font-weight: 700;">2030</div>
+                        <div style="text-align: left;">
+                            <h4>Reach 100M users & global creative partnerships</h4>
+                            <p>Worldwide expansion with major industry collaborations.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. Join the Movement -->
+    <section class="section" style="background: white !important;">
+        <div class="container">
+            <h2>🤝 Join the Movement</h2>
+            <div style="max-width: 600px; margin: 0 auto; text-align: center;">
+                <p>Whether you're a musician, engineer, filmmaker, or dreamer, GT Sounds welcomes you.</p>
+                <p style="font-weight: 700; color: #8b5cf6; font-size: 1.25rem;">Let's build the future of sound — together.</p>
+                <div style="margin-top: 40px;">
+                    <a href="#" class="btn btn-primary">Join GT Sounds</a>
+                    <a href="#" class="btn" style="border: 2px solid #8b5cf6; color: #8b5cf6;">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 GT Sounds. All rights reserved. | Building the future of sound technology in India</p>
+        </div>
+    </footer>
+
+    <script>
+        console.log('GT Sounds homepage loaded with all 9 sections');
+        // Simple script to ensure no JavaScript errors
+    </script>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentations - GT Sounds</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">
+                <i class="fas fa-music"></i>
+                <span>GT Sounds</span>
+            </a>
+            <div class="nav-menu">
+                <a href="/" class="nav-link">
+                    <i class="fas fa-home"></i>
+                    Home
+                </a>
+                <a href="/podcasts" class="nav-link">
+                    <i class="fas fa-podcast"></i>
+                    Podcasts
+                </a>
+                <a href="/presentations" class="nav-link active">
+                    <i class="fas fa-cloud"></i>
+                    Presentations
+                </a>
+                <a href="/documents" class="nav-link">
+                    <i class="fas fa-graduation-cap"></i>
+                    Documents
+                </a>
+                <a href="/admin-login" class="nav-link admin-btn">
+                    <i class="fas fa-cog"></i>
+                    Admin Login
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="header-text">
+                    <h1><i class="fas fa-cloud"></i> Presentations</h1>
+                    <p>Secure, scalable cloud platform for music storage, mixing, and collaboration</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Search and Filters -->
+    <section class="search-filters">
+        <div class="container">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search presentations...">
+                <button id="searchBtn"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="filters">
+                <select id="sortFilter">
+                    <option value="newest">Newest First</option>
+                    <option value="oldest">Oldest First</option>
+                    <option value="size">By Size</option>
+                    <option value="title">By Title</option>
+                </select>
+                <select id="categoryFilter">
+                    <option value="">All Categories</option>
+                </select>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Presentation -->
+    <section class="featured-content">
+        <div class="container">
+            <h2>Featured Presentation</h2>
+            <div id="featuredPresentation">
+                <!-- Featured presentation will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Presentations Grid -->
+    <section class="content-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">All Presentations</h2>
+                <div class="view-options">
+                    <button class="view-btn active" data-view="grid">
+                        <i class="fas fa-th"></i>
+                    </button>
+                    <button class="view-btn" data-view="list">
+                        <i class="fas fa-list"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="content-grid" id="presentationsGrid">
+                <!-- Presentations will be loaded here -->
+            </div>
+            <div class="content-list" id="presentationsList" style="display: none;">
+                <!-- List view will be loaded here -->
+            </div>
+            <div class="load-more">
+                <button id="loadMoreBtn" class="btn btn-secondary">
+                    <i class="fas fa-plus"></i>
+                    Load More
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Media Player Modal -->
+    <div id="mediaModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="media-player">
+                <h3 id="mediaTitle"></h3>
+                <div id="mediaContainer">
+                    <!-- Media player will be inserted here -->
+                </div>
+                <p id="mediaDescription"></p>
+                <div class="media-info">
+                    <div class="media-tags" id="mediaTags"></div>
+                    <div class="media-meta" id="mediaMeta"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 StreamHub. All rights reserved. | Free streaming platform for everyone</p>
+        </div>
+    </footer>
+
+    <script src="/js/presentations.js"></script>
+</body>
+
+</html>
