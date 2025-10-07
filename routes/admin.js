@@ -14,15 +14,19 @@ const requireAdmin = (req, res, next) => {
 router.get('/content', requireAdmin, async (req, res) => {
   try {
     const { type } = req.query;
-    let query = 'SELECT * FROM content';
+    let query = `
+      SELECT c.*, cat.name as category_name, cat.color as category_color 
+      FROM content c 
+      LEFT JOIN categories cat ON c.category_id = cat.id
+    `;
     let params = [];
 
     if (type) {
-      query += ' WHERE type = ?';
+      query += ' WHERE c.type = ?';
       params.push(type);
     }
 
-    query += ' ORDER BY created_at DESC';
+    query += ' ORDER BY c.created_at DESC';
     const content = await database.all(query, params);
     res.json({ success: true, content });
   } catch (err) {
@@ -34,18 +38,21 @@ router.get('/content', requireAdmin, async (req, res) => {
 // Add new content
 router.post('/content', requireAdmin, async (req, res) => {
   try {
-    const { title, description, type, s3_url, thumbnail_url, duration, file_size, tags } = req.body;
+    const { title, description, type, s3_url, thumbnail_url, duration, file_size, tags, video_type, category_id, is_featured } = req.body;
 
     if (!title || !type || !s3_url) {
       return res.status(400).json({ success: false, message: 'Title, type, and S3 URL are required' });
     }
 
     const query = `
-      INSERT INTO content (title, description, type, s3_url, thumbnail_url, duration, file_size, tags)
-      VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+      INSERT INTO content (title, description, type, s3_url, thumbnail_url, duration, file_size, tags, video_type, category_id, is_featured)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     `;
 
-    const result = await database.run(query, [title, description, type, s3_url, thumbnail_url, duration, file_size, tags]);
+    const result = await database.run(query, [
+      title, description, type, s3_url, thumbnail_url, duration, file_size, tags, 
+      video_type, category_id, is_featured ? 1 : 0
+    ]);
     res.json({ success: true, message: 'Content added successfully', id: result.lastID });
   } catch (err) {
     console.error('Database error:', err);
@@ -57,16 +64,20 @@ router.post('/content', requireAdmin, async (req, res) => {
 router.put('/content/:id', requireAdmin, async (req, res) => {
   try {
     const { id } = req.params;
-    const { title, description, type, s3_url, thumbnail_url, duration, file_size, tags } = req.body;
+    const { title, description, type, s3_url, thumbnail_url, duration, file_size, tags, video_type, category_id, is_featured } = req.body;
 
     const query = `
       UPDATE content 
       SET title = ?, description = ?, type = ?, s3_url = ?, thumbnail_url = ?, 
-          duration = ?, file_size = ?, tags = ?, updated_at = CURRENT_TIMESTAMP
+          duration = ?, file_size = ?, tags = ?, video_type = ?, category_id = ?, 
+          is_featured = ?, updated_at = CURRENT_TIMESTAMP
       WHERE id = ?
     `;
 
-    const result = await database.run(query, [title, description, type, s3_url, thumbnail_url, duration, file_size, tags, id]);
+    const result = await database.run(query, [
+      title, description, type, s3_url, thumbnail_url, duration, file_size, tags, 
+      video_type, category_id, is_featured ? 1 : 0, id
+    ]);
     
     if (result.changes === 0) {
       return res.status(404).json({ success: false, message: 'Content not found' });
