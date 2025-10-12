@@ -8723,27 +8723,29 @@ Mission Section */
     right: 0;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
-    padding: 12px 16px;
+    padding: 8px 12px 8px 12px;
     z-index: 1500;
     box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .mobile-audio-info {
     display: flex;
     align-items: center;
-    gap: 12px;
-    margin-bottom: 8px;
+    gap: 10px;
+    margin-bottom: 6px;
 }
 
 .mobile-audio-thumbnail {
-    width: 40px;
-    height: 40px;
-    border-radius: 6px;
+    width: 36px;
+    height: 36px;
+    border-radius: 4px;
     background: rgba(255, 255, 255, 0.2);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+    font-size: 0.9rem;
 }
 
 .mobile-audio-details {
@@ -8752,38 +8754,42 @@ Mission Section */
 }
 
 .mobile-audio-title {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 600;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    line-height: 1.2;
+    margin-bottom: 1px;
 }
 
 .mobile-audio-artist {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     opacity: 0.8;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    line-height: 1.2;
 }
 
 .mobile-audio-controls-row {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 8px;
+    height: 40px;
 }
 
 .mobile-play-btn {
     background: rgba(255, 255, 255, 0.2);
     border: none;
     color: white;
-    width: 44px;
-    height: 44px;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.2rem;
+    font-size: 1rem;
     cursor: pointer;
     transition: all 0.2s ease;
     flex-shrink: 0;
@@ -8798,16 +8804,18 @@ Mission Section */
     flex: 1;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
+    min-width: 0;
 }
 
 .mobile-progress-bar {
     flex: 1;
-    height: 4px;
+    height: 3px;
     background: rgba(255, 255, 255, 0.3);
     border-radius: 2px;
     overflow: hidden;
     cursor: pointer;
+    min-width: 60px;
 }
 
 .mobile-progress-fill {
@@ -8818,21 +8826,54 @@ Mission Section */
 }
 
 .mobile-time {
-    font-size: 0.75rem;
+    font-size: 0.65rem;
     opacity: 0.8;
-    min-width: 35px;
+    min-width: 28px;
     text-align: center;
+    font-weight: 500;
+}
+
+.mobile-control-buttons {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex-shrink: 0;
+}
+
+.mobile-control-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 0.9rem;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mobile-control-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
 }
 
 .mobile-volume-btn {
     background: none;
     border: none;
     color: white;
-    font-size: 1.1rem;
+    font-size: 0.9rem;
     cursor: pointer;
-    padding: 8px;
+    padding: 6px;
     border-radius: 4px;
     transition: all 0.2s ease;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .mobile-volume-btn:hover {
@@ -8947,5 +8988,107 @@ Mission Section */
 
     .container {
         padding: 0 12px;
+    }
+}/* Ext
+ra Small Mobile Devices (iPhone SE, etc.) */
+@media (max-width: 375px) {
+    .mobile-audio-controls {
+        padding: 6px 8px;
+    }
+
+    .mobile-audio-info {
+        gap: 8px;
+        margin-bottom: 4px;
+    }
+
+    .mobile-audio-thumbnail {
+        width: 32px;
+        height: 32px;
+        font-size: 0.8rem;
+    }
+
+    .mobile-audio-title {
+        font-size: 0.8rem;
+    }
+
+    .mobile-audio-artist {
+        font-size: 0.65rem;
+    }
+
+    .mobile-audio-controls-row {
+        gap: 6px;
+        height: 36px;
+    }
+
+    .mobile-play-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 0.9rem;
+    }
+
+    .mobile-control-btn,
+    .mobile-volume-btn {
+        width: 28px;
+        height: 28px;
+        font-size: 0.8rem;
+        padding: 4px;
+    }
+
+    .mobile-progress-container {
+        gap: 4px;
+    }
+
+    .mobile-time {
+        font-size: 0.6rem;
+        min-width: 24px;
+    }
+
+    .mobile-progress-bar {
+        min-width: 50px;
+        height: 2px;
+    }
+
+    .mobile-control-buttons {
+        gap: 2px;
+    }
+}
+
+/* Landscape Mobile Optimization */
+@media (max-width: 768px) and (orientation: landscape) {
+    .mobile-audio-controls {
+        padding: 6px 12px;
+    }
+
+    .mobile-audio-info {
+        margin-bottom: 4px;
+    }
+
+    .mobile-audio-controls-row {
+        height: 36px;
+    }
+
+    .mobile-audio-title {
+        font-size: 0.8rem;
+    }
+
+    .mobile-audio-artist {
+        font-size: 0.65rem;
+    }
+}
+
+/* Touch Target Improvements */
+@media (max-width: 768px) {
+    .mobile-play-btn,
+    .mobile-control-btn,
+    .mobile-volume-btn {
+        -webkit-tap-highlight-color: rgba(255, 255, 255, 0.2);
+        touch-action: manipulation;
+    }
+
+    .mobile-progress-bar {
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
+        padding: 8px 0;
+        margin: -8px 0;
     }
 }
