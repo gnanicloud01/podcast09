@@ -2,6 +2,8 @@
 class StreamHub {
     constructor() {
         this.currentContent = [];
+        this.currentAudio = null;
+        this.isMobile = window.innerWidth <= 768;
         this.init();
     }
 
@@ -12,29 +14,44 @@ class StreamHub {
     }
 
     setupEventListeners() {
+        // Hero section buttons
+        this.setupHeroButtons();
+
         // Search functionality
         const searchBtn = document.getElementById('searchBtn');
         const searchInput = document.getElementById('searchInput');
-        
-        searchBtn.addEventListener('click', () => this.performSearch());
-        searchInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') this.performSearch();
-        });
+
+        if (searchBtn) searchBtn.addEventListener('click', () => this.performSearch());
+        if (searchInput) {
+            searchInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') this.performSearch();
+            });
+        }
 
         // Modal functionality
         const modal = document.getElementById('mediaModal');
-        const closeBtn = modal.querySelector('.close');
-        
-        closeBtn.addEventListener('click', () => {
-            modal.style.display = 'none';
-            this.stopMedia();
-        });
+        const closeBtn = modal.querySelector('.media-modal-close');
+
+        if (closeBtn) {
+            closeBtn.addEventListener('click', () => {
+                modal.style.display = 'none';
+                this.stopMedia();
+            });
+        }
 
         window.addEventListener('click', (e) => {
             if (e.target === modal) {
                 modal.style.display = 'none';
                 this.stopMedia();
             }
+        });
+
+        // Mobile controls
+        this.setupMobileControls();
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            this.isMobile = window.innerWidth <= 768;
         });
 
         // Smooth scrolling for navigation
@@ -49,6 +66,111 @@ class StreamHub {
                 }
             });
         });
+    }
+
+    setupHeroButtons() {
+        // Get Started button - navigate to podcasts page
+        const getStartedBtn = document.querySelector('.hero-actions .btn-primary');
+        if (getStartedBtn) {
+            getStartedBtn.addEventListener('click', () => {
+                window.location.href = '/podcasts';
+            });
+        }
+
+        // Learn More button - scroll to about section
+        const learnMoreBtn = document.querySelector('.hero-actions .btn-secondary');
+        if (learnMoreBtn) {
+            learnMoreBtn.addEventListener('click', () => {
+                const aboutSection = document.querySelector('.about-section');
+                if (aboutSection) {
+                    aboutSection.scrollIntoView({ 
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        }
+    }
+
+    setupMobileControls() {
+        const mobileControls = document.getElementById('mobileAudioControls');
+        const playBtn = document.getElementById('mobilePlayBtn');
+        const progressBar = document.getElementById('mobileProgressBar');
+        const volumeBtn = document.getElementById('mobileVolumeBtn');
+
+        if (playBtn) {
+            playBtn.addEventListener('click', () => {
+                if (this.currentAudio) {
+                    if (this.currentAudio.paused) {
+                        this.currentAudio.play();
+                        playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                    } else {
+                        this.currentAudio.pause();
+                        playBtn.innerHTML = '<i class="fas fa-play"></i>';
+                    }
+                }
+            });
+        }
+
+        if (progressBar) {
+            progressBar.addEventListener('click', (e) => {
+                if (this.currentAudio) {
+                    const rect = progressBar.getBoundingClientRect();
+                    const percent = (e.clientX - rect.left) / rect.width;
+                    this.currentAudio.currentTime = percent * this.currentAudio.duration;
+                }
+            });
+        }
+
+        if (volumeBtn) {
+            volumeBtn.addEventListener('click', () => {
+                if (this.currentAudio) {
+                    this.currentAudio.muted = !this.currentAudio.muted;
+                    volumeBtn.innerHTML = this.currentAudio.muted 
+                        ? '<i class="fas fa-volume-mute"></i>' 
+                        : '<i class="fas fa-volume-up"></i>';
+                }
+            });
+        }
+    }
+
+    updateMobileControls(content) {
+        const mobileControls = document.getElementById('mobileAudioControls');
+        const titleEl = document.getElementById('mobileAudioTitle');
+        const artistEl = document.getElementById('mobileAudioArtist');
+
+        if (this.isMobile && content.type === 'podcast') {
+            if (titleEl) titleEl.textContent = content.title;
+            if (artistEl) artistEl.textContent = 'GT Sounds';
+            mobileControls.classList.add('active');
+        } else {
+            mobileControls.classList.remove('active');
+        }
+    }
+
+    updateMobileProgress() {
+        if (!this.currentAudio || !this.isMobile) return;
+
+        const currentTimeEl = document.getElementById('mobileCurrentTime');
+        const durationEl = document.getElementById('mobileDuration');
+        const progressFill = document.getElementById('mobileProgressFill');
+
+        if (currentTimeEl) {
+            currentTimeEl.textContent = this.formatTime(this.currentAudio.currentTime);
+        }
+        if (durationEl && !isNaN(this.currentAudio.duration)) {
+            durationEl.textContent = this.formatTime(this.currentAudio.duration);
+        }
+        if (progressFill && !isNaN(this.currentAudio.duration)) {
+            const percent = (this.currentAudio.currentTime / this.currentAudio.duration) * 100;
+            progressFill.style.width = percent + '%';
+        }
+    }
+
+    formatTime(seconds) {
+        const mins = Math.floor(seconds / 60);
+        const secs = Math.floor(seconds % 60);
+        return `${mins}:${secs.toString().padStart(2, '0')}`;
     }
 
     async loadStats() {
@@ -76,7 +198,7 @@ class StreamHub {
         try {
             const response = await fetch('/api/content?limit=5');
             const data = await response.json();
-            
+
             if (data.success) {
                 this.renderRecentActivity(data.content);
             }
@@ -115,12 +237,12 @@ class StreamHub {
 
     async loadContentByType() {
         const types = ['podcast', 'presentation', 'document'];
-        
+
         for (const type of types) {
             try {
                 const response = await fetch(`/api/content?type=${type}&limit=12`);
                 const data = await response.json();
-                
+
                 if (data.success) {
                     this.renderContent(data.content, `${type}sGrid`);
                 }
@@ -137,12 +259,12 @@ class StreamHub {
         try {
             const response = await fetch(`/api/content?search=${encodeURIComponent(searchTerm)}`);
             const data = await response.json();
-            
+
             if (data.success) {
                 // Clear all grids and show search results
                 this.clearAllGrids();
                 this.renderContent(data.content, 'featuredContent');
-                
+
                 // Scroll to results
                 document.getElementById('search').scrollIntoView({ behavior: 'smooth' });
             }
@@ -183,7 +305,7 @@ class StreamHub {
         }
 
         container.innerHTML = content.map(item => this.createContentCard(item)).join('');
-        
+
         // Add click listeners to cards
         container.querySelectorAll('.content-card').forEach(card => {
             card.addEventListener('click', () => {
@@ -196,7 +318,7 @@ class StreamHub {
     createFeaturedItem(item) {
         const duration = item.duration ? this.formatDuration(item.duration) : '';
         const views = Math.floor(Math.random() * 1000) + 50; // Mock views
-        
+
         return `
             <div class="featured-item" data-content-id="${item.id}">
                 <div class="featured-header">
@@ -221,7 +343,7 @@ class StreamHub {
             document: 'fas fa-file-alt'
         };
 
-        const thumbnail = item.thumbnail_url 
+        const thumbnail = item.thumbnail_url
             ? `<img src="${item.thumbnail_url}" alt="${item.title}">`
             : `<i class="${typeIcons[item.type] || 'fas fa-file'}"></i>`;
 
@@ -260,7 +382,7 @@ class StreamHub {
         try {
             const response = await fetch(`/api/content/${contentId}`);
             const data = await response.json();
-            
+
             if (data.success) {
                 const content = data.content;
                 this.showMediaModal(content);
@@ -282,17 +404,17 @@ class StreamHub {
         // Create appropriate media element based on content type and URL
         let mediaElement = '';
         const url = content.s3_url;
-        
+
         if (content.type === 'podcast' || url.match(/\.(mp3|wav|ogg|m4a)$/i)) {
             mediaElement = `
-                <audio controls>
+                <audio controls id="currentAudio">
                     <source src="${url}" type="audio/mpeg">
                     Your browser does not support the audio element.
                 </audio>
             `;
         } else if (content.type === 'presentation' || url.match(/\.(mp4|webm|ogg|mov)$/i)) {
             mediaElement = `
-                <video controls>
+                <video controls id="currentVideo">
                     <source src="${url}" type="video/mp4">
                     Your browser does not support the video element.
                 </video>
@@ -316,22 +438,83 @@ class StreamHub {
 
         container.innerHTML = mediaElement;
         modal.style.display = 'block';
+
+        // Setup audio/video event listeners
+        const audio = container.querySelector('audio');
+        const video = container.querySelector('video');
+        
+        if (audio) {
+            this.currentAudio = audio;
+            this.setupMediaEventListeners(audio, content);
+            this.updateMobileControls(content);
+        } else if (video) {
+            this.currentAudio = video;
+            this.setupMediaEventListeners(video, content);
+        }
+    }
+
+    setupMediaEventListeners(media, content) {
+        media.addEventListener('play', () => {
+            const playBtn = document.getElementById('mobilePlayBtn');
+            if (playBtn) playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+        });
+
+        media.addEventListener('pause', () => {
+            const playBtn = document.getElementById('mobilePlayBtn');
+            if (playBtn) playBtn.innerHTML = '<i class="fas fa-play"></i>';
+        });
+
+        media.addEventListener('timeupdate', () => {
+            this.updateMobileProgress();
+        });
+
+        media.addEventListener('loadedmetadata', () => {
+            this.updateMobileProgress();
+        });
+
+        media.addEventListener('ended', () => {
+            const playBtn = document.getElementById('mobilePlayBtn');
+            if (playBtn) playBtn.innerHTML = '<i class="fas fa-play"></i>';
+            
+            const progressFill = document.getElementById('mobileProgressFill');
+            if (progressFill) progressFill.style.width = '0%';
+        });
     }
 
     stopMedia() {
         const container = document.getElementById('mediaContainer');
         const audio = container.querySelector('audio');
         const video = container.querySelector('video');
-        
-        if (audio) audio.pause();
-        if (video) video.pause();
+
+        if (audio) {
+            audio.pause();
+            audio.currentTime = 0;
+        }
+        if (video) {
+            video.pause();
+            video.currentTime = 0;
+        }
+
+        // Hide mobile controls
+        const mobileControls = document.getElementById('mobileAudioControls');
+        if (mobileControls) {
+            mobileControls.classList.remove('active');
+        }
+
+        // Reset mobile controls
+        const playBtn = document.getElementById('mobilePlayBtn');
+        const progressFill = document.getElementById('mobileProgressFill');
+        if (playBtn) playBtn.innerHTML = '<i class="fas fa-play"></i>';
+        if (progressFill) progressFill.style.width = '0%';
+
+        this.currentAudio = null;
     }
 
     formatDuration(seconds) {
         const hours = Math.floor(seconds / 3600);
         const minutes = Math.floor((seconds % 3600) / 60);
         const secs = seconds % 60;
-        
+
         if (hours > 0) {
             return `${hours}:${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
         }
