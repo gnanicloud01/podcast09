@@ -95,8 +95,11 @@ class StreamHub {
     setupMobileControls() {
         const mobileControls = document.getElementById('mobileAudioControls');
         const playBtn = document.getElementById('mobilePlayBtn');
+        const prevBtn = document.getElementById('mobilePrevBtn');
+        const nextBtn = document.getElementById('mobileNextBtn');
         const progressBar = document.getElementById('mobileProgressBar');
         const volumeBtn = document.getElementById('mobileVolumeBtn');
+        const menuBtn = document.getElementById('mobileMenuBtn');
 
         if (playBtn) {
             playBtn.addEventListener('click', () => {
@@ -108,6 +111,22 @@ class StreamHub {
                         this.currentAudio.pause();
                         playBtn.innerHTML = '<i class="fas fa-play"></i>';
                     }
+                }
+            });
+        }
+
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                if (this.currentAudio) {
+                    this.currentAudio.currentTime = Math.max(0, this.currentAudio.currentTime - 15);
+                }
+            });
+        }
+
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                if (this.currentAudio) {
+                    this.currentAudio.currentTime = Math.min(this.currentAudio.duration, this.currentAudio.currentTime + 15);
                 }
             });
         }
@@ -130,6 +149,13 @@ class StreamHub {
                         ? '<i class="fas fa-volume-mute"></i>' 
                         : '<i class="fas fa-volume-up"></i>';
                 }
+            });
+        }
+
+        if (menuBtn) {
+            menuBtn.addEventListener('click', () => {
+                // Toggle additional options or show playlist
+                console.log('Menu clicked - can add playlist or options here');
             });
         }
     }
