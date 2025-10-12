@@ -367,6 +367,52 @@
         </div>
     </footer>
 
+    <!-- Media Modal -->
+    <div id="mediaModal" class="media-modal">
+        <div class="media-modal-content">
+            <div class="media-modal-header">
+                <h3 id="mediaTitle" class="media-modal-title">Media Title</h3>
+                <button class="media-modal-close">&times;</button>
+            </div>
+            <div class="media-modal-body">
+                <div id="mediaContainer" class="media-container">
+                    <!-- Media content will be inserted here -->
+                </div>
+                <div id="mediaDescription" class="media-description">
+                    Media description will appear here...
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Audio Controls -->
+    <div id="mobileAudioControls" class="mobile-audio-controls">
+        <div class="mobile-audio-info">
+            <div class="mobile-audio-thumbnail">
+                <i class="fas fa-music"></i>
+            </div>
+            <div class="mobile-audio-details">
+                <div id="mobileAudioTitle" class="mobile-audio-title">Track Title</div>
+                <div id="mobileAudioArtist" class="mobile-audio-artist">Artist Name</div>
+            </div>
+        </div>
+        <div class="mobile-audio-controls-row">
+            <button id="mobilePlayBtn" class="mobile-play-btn">
+                <i class="fas fa-play"></i>
+            </button>
+            <div class="mobile-progress-container">
+                <span id="mobileCurrentTime" class="mobile-time">0:00</span>
+                <div id="mobileProgressBar" class="mobile-progress-bar">
+                    <div id="mobileProgressFill" class="mobile-progress-fill"></div>
+                </div>
+                <span id="mobileDuration" class="mobile-time">0:00</span>
+            </div>
+            <button id="mobileVolumeBtn" class="mobile-volume-btn">
+                <i class="fas fa-volume-up"></i>
+            </button>
+        </div>
+    </div>
+
     <script src="/js/main.js"></script>
     <script src="/js/presentations.js"></script>
 </body>
